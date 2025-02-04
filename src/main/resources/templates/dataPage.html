@@ -33,12 +33,12 @@
         <tr th:each="plants : ${listPlants}">
             <td th:text="${plants.seedName}">Seed Name</td>
             <td th:text="${plants.month}">Month</td>
-            <td th:text="${plants.normalPrice}">Normal Price</td>
-            <td th:text="${plants.tillerPrice}">Tiller Price</td>
-            <td th:text="${plants.kegPrice}">Keg Price</td>
-            <td th:text="${plants.kegArtisanPrice}">Keg (Artisan) Price</td>
-            <td th:text="${plants.jarPrice}">Jar Price</td>
-            <td th:text="${plants.jarArtisanPrice}">Jar (Artisan) Price</td>
+            <td th:text="${#strings.listJoin(plants.normalPrice,', ')}">Normal Price</td>
+            <td th:text="${#strings.listJoin(plants.tillerPrice,', ')}">Tiller Price</td>
+            <td th:text="${#strings.listJoin(plants.kegPrice,', ')}">Keg Price</td>
+            <td th:text="${#strings.listJoin(plants.kegArtisanPrice,', ')}">Keg (Artisan) Price</td>
+            <td th:text="${#strings.listJoin(plants.jarPrice,', ')}">Jar Price</td>
+            <td th:text="${#strings.listJoin(plants.jarArtisanPrice,', ')}">Jar (Artisan) Price</td>
         </tr>
         </tbody>
     </table>
