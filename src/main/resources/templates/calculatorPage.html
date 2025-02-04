@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="EN">
 <head>
     <meta charset="UTF-8">
-    <title>Calculator</title>
+    <title>Stardew Data</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
+
 <body>
+<header>
+    <h1>Profit Calculator</h1>
+</header>
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/crops">Crop Data</a>
+    <a class="active" href="/calculator">Profit calculator</a>
+    <a href="calendarPage.html">Crop calendar</a>
+</div>
+
+<div>
+    <form th:action="@{/calculatorPage}" th:object="${crop}" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Seed Name</th>
+                    <th>Quantity</th>
+                    <th>Tiller?</th>
+                    <th>Kegs?</th>
+                    <th>Jars?</th>
+                    <th>Artisan?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="plants : ${listPlants}">
+                    <td th:text="${plants.seedName}">Seed Name</td>
+                    <td>
+                        <input type="number" id="quantities" name="quantities" th:value="@{quantities}" value="0" min="0">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="isTiller">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="isKeg">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="isJar">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="isArtisan">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+</div>
 
 </body>
 </html>
