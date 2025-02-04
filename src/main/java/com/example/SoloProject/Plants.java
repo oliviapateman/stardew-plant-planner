@@ -1,8 +1,6 @@
 package com.example.SoloProject;
 
 import jakarta.persistence.*;
-import org.springframework.lang.Nullable;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +15,12 @@ public class Plants {
     private String seedName;
     private boolean isFruit;
     private boolean isFlower;
-    // 1 - Spring, 2 - Summer, 3 - Fall, 4 - Winter
+
     private int month;
+
+    // 1 - Spring, 2 - Summer, 3 - Fall, 4 - Winter
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Integer> normalPrice;
-
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "tiller", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> tillerPrice = new ArrayList<>();
@@ -109,6 +108,22 @@ public class Plants {
         this.tillerPrice = makeTillerPrices(normalPrice);
         this.kegPrice = makeKegPrices(normalPrice);
         this.jarPrice = makeJarPrices(normalPrice);
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public boolean isFlower() {
+        return isFlower;
+    }
+
+    public void setFlower(boolean flower) {
+        isFlower = flower;
     }
 
     public boolean isFruit() {
