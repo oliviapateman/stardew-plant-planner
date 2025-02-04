@@ -13,6 +13,9 @@ header {
 h1{
     color: #e6c339;
     text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-    padding: 5px;
+}
+
+.navbar{
     background-color: #587db8;
+    padding: 10px;
 }
