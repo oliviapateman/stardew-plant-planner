@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="EN">
 <head>
     <meta charset="UTF-8">
-    <title>Plants</title>
+    <title>Stardew Data</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/data.css}"/>
 </head>
 <body>
+<div class="navbar">
+    <a href="/">Home</a>
+    <a class="active" href="/crops">Crop Data</a>
+    <a href="calculatorPage.html">Profit calculator</a>
+    <a href="calendarPage.html">Crop Calendar</a>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Seed name</th>
+            <th>Month</th>
+            <th>Normal Price</th>
+            <th>Tiller Price</th>
+            <th>Keg Price</th>
+            <th>Keg (Artisan) Price</th>
+            <th>Jar Price</th>
+            <th>Jar (Artisan) Price</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="plants : ${listPlants}">
+            <td th:text="${plants.seedName}">Seed Name</td>
+            <td th:text="${plants.month}">Month</td>
+            <td th:text="${plants.normalPrice}">Normal Price</td>
+            <td th:text="${plants.tillerPrice}">Tiller Price</td>
+            <td th:text="${plants.kegPrice}">Keg Price</td>
+            <td th:text="${plants.kegArtisanPrice}">Keg (Artisan) Price</td>
+            <td th:text="${plants.jarPrice}">Jar Price</td>
+            <td th:text="${plants.jarArtisanPrice}">Jar (Artisan) Price</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
