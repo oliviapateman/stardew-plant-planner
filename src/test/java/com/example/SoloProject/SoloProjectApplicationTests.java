@@ -10,4 +10,5 @@ class SoloProjectApplicationTests {
 	void contextLoads() {
 	}
 
+
 }
