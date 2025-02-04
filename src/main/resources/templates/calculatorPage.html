@@ -14,14 +14,14 @@
 </header>
 <div class="navbar">
     <a href="/">Home</a>
-    <a href="/crops">Crop Data</a>
-    <a class="active" href="/calculator">Profit calculator</a>
-    <a href="calendarPage.html">Crop calendar</a>
+    <a href="/crops">Prices</a>
+    <a class="active" href="/calculator">Calculator</a>
+    <a href="calendarPage.html">Calendar</a>
 </div>
 
 <div>
     <form th:action="@{/calculatorPage}" th:object="${crop}" method="post">
-        <table>
+        <table class="calc_table">
             <thead>
                 <tr>
                     <th>Seed Name</th>
@@ -53,7 +53,8 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit">Submit</button>
+        <br>
+        <button type="submit" id="calcSubmit">Submit</button>
     </form>
 </div>
 
