@@ -173,6 +173,8 @@ public class Plants {
         }
         if (this.seedName.equals("Hops")){
             kegPrice.add(300);
+            kegPrice.add(375);
+            kegPrice.add(450);
         }
         return kegPrice;
     }

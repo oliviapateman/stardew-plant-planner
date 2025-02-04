@@ -35,7 +35,7 @@ public class SoloProjectApplication {
             //Summer
             plantsRepo.save(new Plants(true, false, "Blueberry", 2, List.of(50, 62, 75)));
             plantsRepo.save(new Plants(false, false, "Corn", 2, List.of(50, 62, 75)));
-            plantsRepo.save(new Plants(false, true, "Hops", 2, List.of(25, 31, 37)));
+            plantsRepo.save(new Plants(false, false, "Hops", 2, List.of(25, 31, 37)));
             plantsRepo.save(new Plants(true, false, "Hot Pepper", 2, List.of(40, 50, 60)));
             plantsRepo.save(new Plants(true, false, "Melon", 2, List.of(250, 312, 375)));
             plantsRepo.save(new Plants(false, true, "Poppy", 2, List.of(140, 175, 210)));
