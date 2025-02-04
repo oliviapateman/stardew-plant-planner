@@ -22,27 +22,22 @@ public class Plants {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Integer> normalPrice;
 
-    @Nullable
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "tiller", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> tillerPrice = new ArrayList<>();
 
-    @Nullable
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "keg", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> kegPrice = new ArrayList<>();
 
-    @Nullable
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "keg_artisan", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> kegArtisanPrice = new ArrayList<>();
 
-    @Nullable
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "jar", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> jarPrice;
 
-    @Nullable
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "jar_artisan", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> jarArtisanPrice;
@@ -63,52 +58,45 @@ public class Plants {
     protected Plants() {
     }
 
-    @Nullable
     public List<Integer> getJarArtisanPrice() {
         return jarArtisanPrice;
     }
 
-    public void setJarArtisanPrice(@Nullable List<Integer> jarArtisanPrice) {
+    public void setJarArtisanPrice(List<Integer> jarArtisanPrice) {
         this.jarArtisanPrice = jarArtisanPrice;
     }
 
-    @Nullable
     public List<Integer> getJarPrice() {
         return jarPrice;
     }
 
-    public void setJarPrice(@Nullable List<Integer> jarPrice) {
+    public void setJarPrice(List<Integer> jarPrice) {
         this.jarPrice = jarPrice;
         this.jarArtisanPrice = makeJarArtisanPrices(jarPrice);
     }
 
-    @Nullable
     public List<Integer> getKegArtisanPrice() {
         return kegArtisanPrice;
     }
 
-    public void setKegArtisanPrice(@Nullable List<Integer> kegArtisanPrice) {
+    public void setKegArtisanPrice(List<Integer> kegArtisanPrice) {
         this.kegArtisanPrice = kegArtisanPrice;
     }
 
-    @Nullable
     public List<Integer> getKegPrice() {
         return kegPrice;
     }
 
-    @Transactional
-    public void setKegPrice(@Nullable List<Integer> kegPrice) {
+    public void setKegPrice(List<Integer> kegPrice) {
         this.kegPrice = kegPrice;
         this.kegArtisanPrice = makeKegArtisanPrices(kegPrice);
     }
 
-    @Nullable
     public List<Integer> getTillerPrice() {
         return tillerPrice;
     }
 
-    @Transactional
-    public void setTillerPrice(@Nullable List<Integer> tillerPrice) {
+    public void setTillerPrice(List<Integer> tillerPrice) {
         this.tillerPrice = tillerPrice;
     }
 
