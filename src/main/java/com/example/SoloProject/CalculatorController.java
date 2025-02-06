@@ -14,36 +14,22 @@ public class CalculatorController {
     PlantsRepository plantsRepo;
 
     @Autowired
-    PlantsService plantsService;
-
-    Calculator calculator = new Calculator();
+    CalculatorService calculatorService;
 
     @GetMapping("/calculator")
     public String viewCalcPage(Model model){
         List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
         model.addAttribute("listPlants", plantsList);
         model.addAttribute("plant", new Plants());
+        model.addAttribute("form", new FormData());
         return "calculatorPage";
     }
 
     @PostMapping("/calculator")
-    public String calcForm(CalculatorForm calculatorForm){
-        System.out.println(calculatorForm.toString());
-        return "calculatorPage";
+    public String calcForm(CalculatorForm calculatorForm, Model model){
+        calculatorService.calculateProfits(calculatorForm.getDataList());
+        model.addAttribute("calc", calculatorService);
+        return "calculatorResults";
     }
-
-    /*@PostMapping("/calculator")
-    public String showTotalResult(@RequestParam("id") Integer id,
-                                  @RequestParam("quantity") int quantity,
-                                  @RequestParam("isTiller") boolean tiller,
-                                  @RequestParam("isJar") boolean jar,
-                                  @RequestParam("isKeg") boolean keg,
-                                  @RequestParam("isArtisan") boolean artisan){
-        List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
-        plantsService.updateFields(id, quantity, tiller, jar, keg, artisan);
-        calculator.calculateProfits();
-        //TODO: create result page
-        return "calculatorPage";
-    }*/
 
 }
