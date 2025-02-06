@@ -33,24 +33,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="plants, iStat : ${listPlants}">
+                <tr th:each="plants, iStat : ${listPlants}" th:object="${form}">
                     <td th:text="${plants.seedName}">
                     </td>
                     <td>
-                        <input type="hidden" th:attr="name=|plantsList[${iStat.index}].seedName|, value=${plants.seedName}">
-                        <label><input type="number" th:attr="name=|plantsList[${iStat.index}].quantity|, value=${plants.quantity}" min="0"></label>
+                        <input type="hidden" th:attr="name=|dataList[${iStat.index}].id|, value=${plants.id}">
+                        <label><input type="number" th:attr="name=|dataList[${iStat.index}].quantity|, value=${form.quantity}" min="0"></label>
                     </td>
                     <td>
-                        <label><input type="checkbox" th:attr="name=|plantsList[${iStat.index}].tiller|" value="true"></label>
+                        <label><input type="checkbox" th:attr="name=|dataList[${iStat.index}].tiller|" value="true"></label>
                     </td>
                     <td>
-                        <label><input type="checkbox" th:attr="name=|plantsList[${iStat.index}].keg|" value="true"></label>
+                        <label><input type="checkbox" th:attr="name=|dataList[${iStat.index}].keg|" value="true"></label>
                     </td>
                     <td>
-                        <label><input type="checkbox"  th:attr="name=|plantsList[${iStat.index}].jar|" value="true"></label>
+                        <label><input type="checkbox"  th:attr="name=|dataList[${iStat.index}].jar|" value="true"></label>
                     </td>
                     <td>
-                        <label><input type="checkbox"  th:attr="name=|plantsList[${iStat.index}].artisan|" value="true"></label>
+                        <label><input type="checkbox"  th:attr="name=|dataList[${iStat.index}].artisan|" value="true"></label>
                     </td>
                 </tr>
             </tbody>
