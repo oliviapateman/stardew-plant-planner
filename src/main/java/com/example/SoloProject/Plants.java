@@ -15,12 +15,17 @@ public class Plants {
     private String seedName;
     private boolean isFruit;
     private boolean isFlower;
-
     private int month;
-
     // 1 - Spring, 2 - Summer, 3 - Fall, 4 - Winter
+    private boolean isArtisan;
+    private boolean isKeg;
+    private boolean isJar;
+    private boolean isTiller;
+    private int quantity;
+
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Integer> normalPrice;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "tiller", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> tillerPrice = new ArrayList<>();
@@ -52,9 +57,54 @@ public class Plants {
         this.jarPrice = makeJarPrices(normalPrice);
         this.kegArtisanPrice = makeKegArtisanPrices(this.kegPrice);
         this.jarArtisanPrice = makeJarArtisanPrices(this.jarPrice);
+        this.isArtisan = false;
+        this.isJar = false;
+        this.isKeg = false;
+        this.isTiller = false;
+        this.quantity = 0;
     }
 
     protected Plants() {
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isTiller() {
+        return isTiller;
+    }
+
+    public void setTiller(boolean tiller) {
+        isTiller = tiller;
+    }
+
+    public boolean isJar() {
+        return isJar;
+    }
+
+    public void setJar(boolean jar) {
+        isJar = jar;
+    }
+
+    public boolean isKeg() {
+        return isKeg;
+    }
+
+    public void setKeg(boolean keg) {
+        isKeg = keg;
+    }
+
+    public boolean isArtisan() {
+        return isArtisan;
+    }
+
+    public void setArtisan(boolean artisan) {
+        isArtisan = artisan;
     }
 
     public List<Integer> getJarArtisanPrice() {
@@ -150,7 +200,7 @@ public class Plants {
         this.id = id;
     }
 
-    public List<Integer> makeTillerPrices(List<Integer> normalPrice){
+    public List<Integer> makeTillerPrices(List<Integer> normalPrice) {
         List<Integer> tillerPrice = new ArrayList<>();
         for (int price : normalPrice) {
             if (!isFlower) {
@@ -160,7 +210,7 @@ public class Plants {
         return tillerPrice;
     }
 
-    public List<Integer> makeKegPrices(List<Integer> normalPrice){
+    public List<Integer> makeKegPrices(List<Integer> normalPrice) {
         List<Integer> kegPrice = new ArrayList<>();
         if (!isFlower) {
             for (int price : normalPrice) {
@@ -171,7 +221,7 @@ public class Plants {
                 }
             }
         }
-        if (this.seedName.equals("Hops")){
+        if (this.seedName.equals("Hops")) {
             kegPrice.add(300);
             kegPrice.add(375);
             kegPrice.add(450);
@@ -179,7 +229,7 @@ public class Plants {
         return kegPrice;
     }
 
-    public List<Integer> makeJarPrices(List<Integer> normalPrice){
+    public List<Integer> makeJarPrices(List<Integer> normalPrice) {
         List<Integer> jarPrice = new ArrayList<>();
         for (int price : normalPrice) {
             if (!isFlower) {
@@ -189,7 +239,7 @@ public class Plants {
         return jarPrice;
     }
 
-    public List<Integer> makeJarArtisanPrices(List<Integer> jarPrice){
+    public List<Integer> makeJarArtisanPrices(List<Integer> jarPrice) {
         List<Integer> jarArtisanPrice = new ArrayList<>();
         if (jarPrice != null) {
             for (int price : jarPrice) {
@@ -201,7 +251,7 @@ public class Plants {
         }
     }
 
-    public List<Integer> makeKegArtisanPrices(List<Integer> kegPrice){
+    public List<Integer> makeKegArtisanPrices(List<Integer> kegPrice) {
         List<Integer> kegArtisanPrice = new ArrayList<>();
         if (kegPrice != null) {
             for (int price : kegPrice) {
