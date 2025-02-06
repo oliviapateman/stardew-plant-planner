@@ -37,19 +37,19 @@ public class CalculatorService {
                     double regular = quantity * 0.47;
                     double silver = quantity * 0.33;
                     double gold = quantity * 0.2;
-                    if (plant.isFlower()){
+                    if (plant.isFlower() && !plant.getSeedName().equals("Hops")){
                         addToCrops(plant, regular, silver, gold);
                     } else if (data.isArtisan()) {
-                        if (data.isJar()) {
+                        if (data.isJar() && !plant.getSeedName().equals("Hops")) {
                             addJarToArtisan(plant);
                         } else if (data.isKeg()) {
                             addKegToArtisan(plant);
                         }
-                    } else if (data.isJar()) {
+                    } else if (data.isJar() && !plant.getSeedName().equals("Hops")) {
                         addToJar(plant, regular, silver, gold);
                     } else if (data.isKeg()) {
                         addToKeg(plant, regular, silver, gold);
-                    } else if (data.isTiller()) {
+                    } else if (data.isTiller() && !plant.getSeedName().equals("Hops")) {
                         addToCrops(plant, regular, silver, gold);
                     } else {
                         addToCrops(plant, regular, silver, gold);
