@@ -17,11 +17,6 @@ public class Plants {
     private boolean isFlower;
     private int month;
     // 1 - Spring, 2 - Summer, 3 - Fall, 4 - Winter
-    private boolean isArtisan;
-    private boolean isKeg;
-    private boolean isJar;
-    private boolean isTiller;
-    private int quantity;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Integer> normalPrice;
@@ -57,54 +52,9 @@ public class Plants {
         this.jarPrice = makeJarPrices(normalPrice);
         this.kegArtisanPrice = makeKegArtisanPrices(this.kegPrice);
         this.jarArtisanPrice = makeJarArtisanPrices(this.jarPrice);
-        this.isArtisan = false;
-        this.isJar = false;
-        this.isKeg = false;
-        this.isTiller = false;
-        this.quantity = 0;
     }
 
-    public Plants() {
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public boolean isTiller() {
-        return isTiller;
-    }
-
-    public void setTiller(boolean tiller) {
-        isTiller = tiller;
-    }
-
-    public boolean isJar() {
-        return isJar;
-    }
-
-    public void setJar(boolean jar) {
-        isJar = jar;
-    }
-
-    public boolean isKeg() {
-        return isKeg;
-    }
-
-    public void setKeg(boolean keg) {
-        isKeg = keg;
-    }
-
-    public boolean isArtisan() {
-        return isArtisan;
-    }
-
-    public void setArtisan(boolean artisan) {
-        isArtisan = artisan;
+    protected Plants() {
     }
 
     public List<Integer> getJarArtisanPrice() {
@@ -272,11 +222,6 @@ public class Plants {
                 ", isFruit=" + isFruit +
                 ", isFlower=" + isFlower +
                 ", month=" + month +
-                ", isArtisan=" + isArtisan +
-                ", isKeg=" + isKeg +
-                ", isJar=" + isJar +
-                ", isTiller=" + isTiller +
-                ", quantity=" + quantity +
                 ", normalPrice=" + normalPrice +
                 ", tillerPrice=" + tillerPrice +
                 ", kegPrice=" + kegPrice +
