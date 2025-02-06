@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" lang="EN">
 <head>
     <meta charset="UTF-8">
     <title>Stardew Data</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script type="text/javascript" th:href="@{/project.js}"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 </div>
 
 <div>
-    <form th:action="@{/calculatorPage}" th:object="${crop}" method="post">
+    <form action="#" th:action="@{/calculator}" method="post">
         <table class="calc_table">
             <thead>
                 <tr>
@@ -33,28 +33,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="plants : ${listPlants}">
-                    <td th:text="${plants.seedName}">Seed Name</td>
-                    <td>
-                        <input type="number" id="quantities" name="quantities" th:value="@{quantities}" value="0" min="0">
+                <tr th:each="plants, iStat : ${listPlants}">
+                    <td th:text="${plants.seedName}">
                     </td>
                     <td>
-                        <input type="checkbox" id="isTiller">
+                        <input type="hidden" th:attr="name=|plantsList[${iStat.index}].seedName|, value=${plants.seedName}">
+                        <label><input type="number" th:attr="name=|plantsList[${iStat.index}].quantity|, value=${plants.quantity}" min="0"></label>
                     </td>
                     <td>
-                        <input type="checkbox" id="isKeg">
+                        <label><input type="checkbox" th:attr="name=|plantsList[${iStat.index}].tiller|" value="true"></label>
                     </td>
                     <td>
-                        <input type="checkbox" id="isJar">
+                        <label><input type="checkbox" th:attr="name=|plantsList[${iStat.index}].keg|" value="true"></label>
                     </td>
                     <td>
-                        <input type="checkbox" id="isArtisan">
+                        <label><input type="checkbox"  th:attr="name=|plantsList[${iStat.index}].jar|" value="true"></label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox"  th:attr="name=|plantsList[${iStat.index}].artisan|" value="true"></label>
                     </td>
                 </tr>
             </tbody>
         </table>
         <br>
-        <button type="submit" id="calcSubmit">Submit</button>
+        <button type="submit" id="calcSubmit">Calculate</button>
     </form>
 </div>
 
