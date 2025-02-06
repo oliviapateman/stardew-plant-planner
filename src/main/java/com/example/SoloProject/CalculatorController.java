@@ -1,7 +1,6 @@
 package com.example.SoloProject;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,23 +13,37 @@ public class CalculatorController {
     @Autowired
     PlantsRepository plantsRepo;
 
-    /*@RequestMapping("/calculator")
-    public String getProfitTotal(@Param("quantities") List<Integer> quantities, Model model){
-        model.addAttribute("quantities", quantities);
-        List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
-        model.addAttribute("listPlants", plantsList);
-        *//*TODO: calculation method
-          - quantity * price *//*
-        // probability crops --> 47% base, 33% silver, 20% gold
-        // jar / wine --> base unless aged to silver and aged to gold
-        return "calculatorPage";
-    }*/
+    @Autowired
+    PlantsService plantsService;
 
-    @RequestMapping("/calculator")
+    Calculator calculator = new Calculator();
+
+    @GetMapping("/calculator")
     public String viewCalcPage(Model model){
         List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
         model.addAttribute("listPlants", plantsList);
+        model.addAttribute("plant", new Plants());
         return "calculatorPage";
     }
+
+    @PostMapping("/calculator")
+    public String calcForm(CalculatorForm calculatorForm){
+        System.out.println(calculatorForm.toString());
+        return "calculatorPage";
+    }
+
+    /*@PostMapping("/calculator")
+    public String showTotalResult(@RequestParam("id") Integer id,
+                                  @RequestParam("quantity") int quantity,
+                                  @RequestParam("isTiller") boolean tiller,
+                                  @RequestParam("isJar") boolean jar,
+                                  @RequestParam("isKeg") boolean keg,
+                                  @RequestParam("isArtisan") boolean artisan){
+        List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
+        plantsService.updateFields(id, quantity, tiller, jar, keg, artisan);
+        calculator.calculateProfits();
+        //TODO: create result page
+        return "calculatorPage";
+    }*/
 
 }
