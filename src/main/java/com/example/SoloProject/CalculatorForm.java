@@ -7,17 +7,18 @@ public class CalculatorForm {
     @Override
     public String toString() {
         return "CalculatorForm{" +
-                "plantsList=" + plantsList +
+                "dataList=" + dataList +
                 '}';
     }
 
-    private List<Plants> plantsList;
+    private List<FormData> dataList;
 
-    public List<Plants> getPlantsList() {
-        return plantsList;
+    public List<FormData> getDataList() {
+        return dataList;
     }
 
-    public void setPlantsList(List<Plants> plantsList) {
-        this.plantsList = plantsList;
+    public void setDataList(List<FormData> dataList) {
+        this.dataList = dataList;
     }
+
 }
