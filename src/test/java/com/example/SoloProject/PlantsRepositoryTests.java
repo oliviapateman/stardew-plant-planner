@@ -1,6 +1,5 @@
 package com.example.SoloProject;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -21,7 +20,7 @@ public class PlantsRepositoryTests {
     private static final Logger log = LoggerFactory.getLogger(PlantsRepositoryTests.class);
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         plantsRepo.deleteAll();
     }
 
@@ -66,25 +65,38 @@ public class PlantsRepositoryTests {
     }
 
     @Test
-    public void hopsOnlyHasOneValueInKegLists() {
+    public void hopsOnlyHasKegLists() {
         Plants hops = new Plants(false, true, "Hops", 2, List.of(25, 31, 37));
         plantsRepo.save(hops);
         assertEquals(0, hops.getTillerPrice().size());
         assertEquals(0, hops.getJarPrice().size());
-        assertEquals(1, hops.getKegPrice().size());
+        assertEquals(3, hops.getKegPrice().size());
         assertEquals(0, hops.getJarArtisanPrice().size());
-        assertEquals(1, hops.getKegArtisanPrice().size());
+        assertEquals(3, hops.getKegArtisanPrice().size());
     }
 
     @Test
     public void getPlantsByMonth() {
-        plantsRepo.save(new Plants(false, false, "Tomato", 2, List.of(60,75,90)));
+        plantsRepo.save(new Plants(false, false, "Tomato", 2, List.of(60, 75, 90)));
         plantsRepo.save(new Plants(false, false, "Wheat", 2, List.of(25, 31, 37)));
         plantsRepo.save(new Plants(false, false, "Corn", 3, List.of(50, 62, 75)));
         plantsRepo.save(new Plants(false, true, "Sunflower", 3, List.of(80, 100, 120)));
 
         log.info(plantsRepo.findByMonth(2).toString());
 
-        assertEquals(2,plantsRepo.findByMonth(2).size());
+        assertEquals(2, plantsRepo.findByMonth(2).size());
     }
+
+    @Test
+    public void getAllPlants() {
+        plantsRepo.save(new Plants(false, false, "Tomato", 2, List.of(60, 75, 90)));
+        plantsRepo.save(new Plants(false, false, "Wheat", 2, List.of(25, 31, 37)));
+        plantsRepo.save(new Plants(false, false, "Corn", 3, List.of(50, 62, 75)));
+        plantsRepo.save(new Plants(false, true, "Sunflower", 3, List.of(80, 100, 120)));
+
+        List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
+
+        assertEquals(4, plantsList.size());
+    }
+
 }

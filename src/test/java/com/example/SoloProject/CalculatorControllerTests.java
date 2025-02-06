@@ -12,21 +12,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PlantsControllerTests {
+public class CalculatorControllerTests {
 
     @Autowired
-    private PlantsController plantsController;
+    private CalculatorController calculatorController;
 
     @Autowired
     MockMvc mvc;
 
     @Test
     public void contextLoads(){
-        assertNotNull(plantsController);
+        assertNotNull(calculatorController);
     }
 
     @Test
-    public void dataPageReturnsOk() throws Exception {
-        mvc.perform(get("/crops")).andExpect(status().isOk());
+    public void calculatorPageReturnsOk() throws Exception {
+        mvc.perform(get("/calculator")).andExpect(status().isOk());
     }
+
 }
