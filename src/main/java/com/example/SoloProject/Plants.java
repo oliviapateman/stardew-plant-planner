@@ -64,7 +64,7 @@ public class Plants {
         this.quantity = 0;
     }
 
-    protected Plants() {
+    public Plants() {
     }
 
     public int getQuantity() {
@@ -263,14 +263,20 @@ public class Plants {
         }
     }
 
+
     @Override
     public String toString() {
         return "Plants{" +
                 "id=" + id +
-                ", month=" + month +
+                ", seedName='" + seedName + '\'' +
                 ", isFruit=" + isFruit +
                 ", isFlower=" + isFlower +
-                ", seedName='" + seedName + '\'' +
+                ", month=" + month +
+                ", isArtisan=" + isArtisan +
+                ", isKeg=" + isKeg +
+                ", isJar=" + isJar +
+                ", isTiller=" + isTiller +
+                ", quantity=" + quantity +
                 ", normalPrice=" + normalPrice +
                 ", tillerPrice=" + tillerPrice +
                 ", kegPrice=" + kegPrice +
