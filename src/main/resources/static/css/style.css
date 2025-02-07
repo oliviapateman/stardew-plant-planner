@@ -60,6 +60,10 @@ table, th, td {
     background-color: #bad2f7;
 }
 
+#results_table td th {
+    padding: 15px 15px
+}
+
 th {
     background-color: #e2d976;
     font-size: 19px;
