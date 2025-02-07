@@ -37,9 +37,13 @@ public class CalculatorService {
                     double regular = quantity * 0.47;
                     double silver = quantity * 0.33;
                     double gold = quantity * 0.2;
-                    if (plant.isFlower() && !plant.getSeedName().equals("Hops")) {
-                        addToCrops(plant, regular, silver, gold);
-                    } else if (data.isJar() && !plant.getSeedName().equals("Hops")) {
+                    if (plant.isFlower()) {
+                        if (data.isTiller()) {
+                            addTillerCrops(plant, regular, silver, gold);
+                        } else {
+                            addNormalCrops(plant, regular, silver, gold);
+                        }
+                    } else if (data.isJar()) {
                         if (data.isArtisan()) {
                             addJarToArtisan(plant);
                         } else {
@@ -51,10 +55,10 @@ public class CalculatorService {
                         } else {
                             addToKeg(plant, quantity);
                         }
-                    } else if (data.isTiller() && !plant.getSeedName().equals("Hops")) {
-                        addToCrops(plant, regular, silver, gold);
+                    } else if (data.isTiller()) {
+                        addTillerCrops(plant, regular, silver, gold);
                     } else {
-                        addToCrops(plant, regular, silver, gold);
+                        addNormalCrops(plant, regular, silver, gold);
                     }
                     addAllUp(data.isKeg(), data.isJar(), data.isArtisan());
                     break;
@@ -84,6 +88,23 @@ public class CalculatorService {
         return total;
     }
 
+    public void resetFields(){
+        totalCrops = 0;
+        totalRegJarKeg = 0;
+        totalSilverJarKeg = 0;
+        totalGoldJarKeg = 0;
+        totalRegArtisan = 0;
+        totalSilverArtisan = 0;
+        totalGoldArtisan = 0;
+        allRegArtisan.clear();
+        allSilverArtisan.clear();
+        allGoldArtisan.clear();
+        allRegJarAndKeg.clear();
+        allSilverJarAndKeg.clear();
+        allGoldJarAndKeg.clear();
+        allNormalAndTillerCrops.clear();
+    }
+
     private void addJarToArtisan(Plants plant) {
         allRegArtisan.add(plant.getJarArtisanPrice().get(0) * quantity);
         allSilverArtisan.add(plant.getJarArtisanPrice().get(1) * quantity);
@@ -108,7 +129,13 @@ public class CalculatorService {
         allGoldJarAndKeg.add(plant.getKegPrice().get(2) * quantity);
     }
 
-    private void addToCrops(Plants plant, double regular, double silver, double gold) {
+    private void addTillerCrops(Plants plant, double regular, double silver, double gold) {
+        allNormalAndTillerCrops.add((int) (plant.getTillerPrice().get(0) * regular));
+        allNormalAndTillerCrops.add((int) (plant.getTillerPrice().get(1) * silver));
+        allNormalAndTillerCrops.add((int) (plant.getTillerPrice().get(2) * gold));
+    }
+
+    private void addNormalCrops(Plants plant, double regular, double silver, double gold) {
         allNormalAndTillerCrops.add((int) (plant.getNormalPrice().get(0) * regular));
         allNormalAndTillerCrops.add((int) (plant.getNormalPrice().get(1) * silver));
         allNormalAndTillerCrops.add((int) (plant.getNormalPrice().get(2) * gold));
