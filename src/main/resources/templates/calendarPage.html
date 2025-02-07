@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="EN">
 <head>
     <meta charset="UTF-8">
-    <title>Calendar</title>
+    <title>Stardew Data</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
-<body>
 
+<body>
+<header>
+    <h1>Planting Calendar</h1>
+</header>
+
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/crops">Prices</a>
+    <a href="/calculator">Calculator</a>
+    <a class="active" href="/calendar">Calendar</a>
+</div>
 </body>
 </html>

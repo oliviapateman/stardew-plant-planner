@@ -17,36 +17,42 @@
     <a href="/">Home</a>
     <a href="/crops">Prices</a>
     <a class="active" href="/calculator">Calculator</a>
-    <a href="calendarPage.html">Calendar</a>
+    <a href="/calendar">Calendar</a>
 </div>
 
 <div>
-    <table class="calc_table">
+    <table class="calc_table" id="results_table">
         <thead>
         <tr>
-            <th rowspan="2">Crop Total (Tiller included)</th>
-            <th colspan="3">Keg and Jar Total</th>
-            <th colspan="3">Artisan Total</th>
+            <th>If all artisan products are only:</th>
+            <th>Total (+crops)</th>
 
-        </tr>
-        <tr>
-            <th>If all are only Regular</th>
-            <th>If all are only Silver</th>
-            <th>If all are only Gold</th>
-            <th>If all are only Regular</th>
-            <th>If all are only Silver</th>
-            <th>If all are only Gold</th>
         </tr>
         </thead>
 
         <tbody>
         <tr>
-            <td th:text="${calc.totalCrops > 0 ? calc.totalCrops : 'N/A'}"></td>
+            <th>Regular Jars / Kegs</th>
             <td th:text="${calc.totalRegJarKeg > 0 ? calc.totalRegJarKeg : 'N/A'}"></td>
+        </tr>
+        <tr>
+            <th>Silver Jars / Keg</th>
             <td th:text="${calc.totalSilverJarKeg > 0 ? calc.totalSilverJarKeg : 'N/A'}"></td>
+        </tr>
+        <tr>
+            <th>Gold Jars / Kegs</th>
             <td th:text="${calc.totalGoldJarKeg > 0 ? calc.totalGoldJarKeg : 'N/A'}"></td>
+        </tr>
+        <tr>
+            <th>Regular with Artisan bonus</th>
             <td th:text="${calc.totalRegArtisan > 0 ? calc.totalRegArtisan : 'N/A'}"></td>
+        </tr>
+        <tr>
+            <th>Silver with Artisan bonus</th>
             <td th:text="${calc.totalSilverArtisan > 0 ? calc.totalSilverArtisan : 'N/A'}"></td>
+        </tr>
+        <tr>
+            <th>Gold with Artisan bonus</th>
             <td th:text="${calc.totalGoldArtisan > 0 ? calc.totalGoldArtisan : 'N/A'}"></td>
         </tr>
         </tbody>
