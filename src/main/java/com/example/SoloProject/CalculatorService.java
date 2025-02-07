@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class CalculatorService {
-    
+
     @Autowired
     PlantsRepository plantsRepo;
 
@@ -37,18 +37,20 @@ public class CalculatorService {
                     double regular = quantity * 0.47;
                     double silver = quantity * 0.33;
                     double gold = quantity * 0.2;
-                    if (plant.isFlower() && !plant.getSeedName().equals("Hops")){
+                    if (plant.isFlower() && !plant.getSeedName().equals("Hops")) {
                         addToCrops(plant, regular, silver, gold);
-                    } else if (data.isArtisan()) {
-                        if (data.isJar() && !plant.getSeedName().equals("Hops")) {
-                            addJarToArtisan(plant);
-                        } else if (data.isKeg()) {
-                            addKegToArtisan(plant);
-                        }
                     } else if (data.isJar() && !plant.getSeedName().equals("Hops")) {
-                        addToJar(plant, quantity);
+                        if (data.isArtisan()) {
+                            addJarToArtisan(plant);
+                        } else {
+                            addToJar(plant, quantity);
+                        }
                     } else if (data.isKeg()) {
-                        addToKeg(plant, quantity);
+                        if (data.isArtisan()) {
+                            addKegToArtisan(plant);
+                        } else {
+                            addToKeg(plant, quantity);
+                        }
                     } else if (data.isTiller() && !plant.getSeedName().equals("Hops")) {
                         addToCrops(plant, regular, silver, gold);
                     } else {
@@ -67,8 +69,7 @@ public class CalculatorService {
             totalRegArtisan = sumOfList(allRegArtisan) + totalCrops;
             totalSilverArtisan = sumOfList(allSilverArtisan) + totalCrops;
             totalGoldArtisan = sumOfList(allGoldArtisan) + totalCrops;
-        }
-        if(isKeg || isJar) {
+        } else if (isKeg || isJar) {
             totalRegJarKeg = sumOfList(allRegJarAndKeg) + totalCrops;
             totalSilverJarKeg = sumOfList(allSilverJarAndKeg) + totalCrops;
             totalGoldJarKeg = sumOfList(allGoldJarAndKeg) + totalCrops;
@@ -96,15 +97,15 @@ public class CalculatorService {
     }
 
     private void addToJar(Plants plant, int quantity) {
-        allRegJarAndKeg.add((int) (plant.getJarPrice().get(0) * quantity));
-        allSilverJarAndKeg.add((int) (plant.getJarPrice().get(1) * quantity));
-        allGoldJarAndKeg.add((int) (plant.getJarPrice().get(2) * quantity));
+        allRegJarAndKeg.add(plant.getJarPrice().get(0) * quantity);
+        allSilverJarAndKeg.add(plant.getJarPrice().get(1) * quantity);
+        allGoldJarAndKeg.add(plant.getJarPrice().get(2) * quantity);
     }
 
     private void addToKeg(Plants plant, int quantity) {
-        allRegJarAndKeg.add((int) (plant.getKegPrice().get(0) * quantity));
-        allSilverJarAndKeg.add((int) (plant.getKegPrice().get(1) * quantity));
-        allGoldJarAndKeg.add((int) (plant.getKegPrice().get(2) * quantity));
+        allRegJarAndKeg.add(plant.getKegPrice().get(0) * quantity);
+        allSilverJarAndKeg.add(plant.getKegPrice().get(1) * quantity);
+        allGoldJarAndKeg.add(plant.getKegPrice().get(2) * quantity);
     }
 
     private void addToCrops(Plants plant, double regular, double silver, double gold) {
