@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Stardew Data</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <script type="text/javascript" th:href="@{/project.js}"></script>
+    <script th:src="@{project.js}"></script>
 </head>
 
 <body>
@@ -26,10 +26,10 @@
                 <tr>
                     <th>Seed Name</th>
                     <th>Quantity</th>
-                    <th>Tiller?</th>
+                    <th>Tiller?<input type="checkbox" onclick="selectAllTiller(this)"></th>
                     <th>Kegs?</th>
                     <th>Jars?</th>
-                    <th>Artisan?</th>
+                    <th>Artisan?<input type="checkbox" onclick="selectAllArtisan(this)"></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
                         <label><input type="number" th:attr="name=|dataList[${iStat.index}].quantity|, value=${form.quantity}" min="0"></label>
                     </td>
                     <td>
-                        <label><input type="checkbox" th:attr="name=|dataList[${iStat.index}].tiller|" value="true"></label>
+                        <label><input type="checkbox" class="selectTiller" th:attr="name=|dataList[${iStat.index}].tiller|" value="true"></label>
                     </td>
                     <td>
                         <label><input type="checkbox" th:attr="name=|dataList[${iStat.index}].keg|" value="true"></label>
@@ -50,7 +50,7 @@
                         <label><input type="checkbox"  th:attr="name=|dataList[${iStat.index}].jar|" value="true"></label>
                     </td>
                     <td>
-                        <label><input type="checkbox"  th:attr="name=|dataList[${iStat.index}].artisan|" value="true"></label>
+                        <label><input type="checkbox" class="selectArtisan" th:attr="name=|dataList[${iStat.index}].artisan|" value="true"></label>
                     </td>
                 </tr>
             </tbody>

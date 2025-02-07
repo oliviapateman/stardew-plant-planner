@@ -21,38 +21,53 @@
 </div>
 
 <div>
-    <table class="calc_table" id="results_table">
+    <table class="calc_table">
         <thead>
         <tr>
-            <th>If all artisan products are only:</th>
-            <th>Total (+crops)</th>
-
+            <th>Selling:</th>
+            <th>Total</th>
         </tr>
         </thead>
 
         <tbody>
         <tr>
-            <th>Regular Jars / Kegs</th>
+            <th class="rowHeader">Only Crops</th>
+            <td th:text="${calc.totalCrops > 0 ? calc.totalCrops : 'N/A'}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="calc_table">
+        <thead>
+        <tr>
+            <th>If all artisan products are only:</th>
+            <th>Total (+crops)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th class="rowHeader">Regular Jars / Kegs</th>
             <td th:text="${calc.totalRegJarKeg > 0 ? calc.totalRegJarKeg : 'N/A'}"></td>
         </tr>
         <tr>
-            <th>Silver Jars / Keg</th>
+            <th class="rowHeader">Silver Jars / Keg</th>
             <td th:text="${calc.totalSilverJarKeg > 0 ? calc.totalSilverJarKeg : 'N/A'}"></td>
         </tr>
         <tr>
-            <th>Gold Jars / Kegs</th>
+            <th class="rowHeader">Gold Jars / Kegs</th>
             <td th:text="${calc.totalGoldJarKeg > 0 ? calc.totalGoldJarKeg : 'N/A'}"></td>
         </tr>
         <tr>
-            <th>Regular with Artisan bonus</th>
+            <th class="rowHeader">Regular with Artisan bonus</th>
             <td th:text="${calc.totalRegArtisan > 0 ? calc.totalRegArtisan : 'N/A'}"></td>
         </tr>
         <tr>
-            <th>Silver with Artisan bonus</th>
+            <th class="rowHeader">Silver with Artisan bonus</th>
             <td th:text="${calc.totalSilverArtisan > 0 ? calc.totalSilverArtisan : 'N/A'}"></td>
         </tr>
         <tr>
-            <th>Gold with Artisan bonus</th>
+            <th class="rowHeader">Gold with Artisan bonus</th>
             <td th:text="${calc.totalGoldArtisan > 0 ? calc.totalGoldArtisan : 'N/A'}"></td>
         </tr>
         </tbody>
