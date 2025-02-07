@@ -22,6 +22,7 @@ public class CalculatorController {
         model.addAttribute("listPlants", plantsList);
         model.addAttribute("plant", new Plants());
         model.addAttribute("form", new FormData());
+        calculatorService.resetFields();
         return "calculatorPage";
     }
 
