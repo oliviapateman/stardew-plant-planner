@@ -55,19 +55,19 @@ table, th, td {
 }
 
 .calc_table {
-    width: 45%;
+    width: 850px;
     margin: auto;
     background-color: #bad2f7;
-}
-
-#results_table td th {
-    padding: 15px 15px
 }
 
 th {
     background-color: #e2d976;
     font-size: 19px;
     font-style: bold;
+}
+
+.rowHeader {
+    background-color: #f0ecc7;
 }
 
 tr {
