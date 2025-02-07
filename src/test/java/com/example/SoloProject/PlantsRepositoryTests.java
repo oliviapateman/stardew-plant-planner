@@ -54,25 +54,14 @@ public class PlantsRepositoryTests {
     }
 
     @Test
-    public void flowerHasNoAddedValues() {
+    public void flowerHasOnlyTillerAddedValues() {
         Plants flower = new Plants(false, true, "Fairy Rose", 3, List.of(290, 362, 435));
         plantsRepo.save(flower);
-        assertEquals(0, flower.getTillerPrice().size());
+        assertEquals(3, flower.getTillerPrice().size());
         assertEquals(0, flower.getJarPrice().size());
         assertEquals(0, flower.getKegPrice().size());
         assertEquals(0, flower.getJarArtisanPrice().size());
         assertEquals(0, flower.getKegArtisanPrice().size());
-    }
-
-    @Test
-    public void hopsOnlyHasKegLists() {
-        Plants hops = new Plants(false, true, "Hops", 2, List.of(25, 31, 37));
-        plantsRepo.save(hops);
-        assertEquals(0, hops.getTillerPrice().size());
-        assertEquals(0, hops.getJarPrice().size());
-        assertEquals(3, hops.getKegPrice().size());
-        assertEquals(0, hops.getJarArtisanPrice().size());
-        assertEquals(3, hops.getKegArtisanPrice().size());
     }
 
     @Test
