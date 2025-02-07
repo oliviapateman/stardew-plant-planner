@@ -153,16 +153,18 @@ public class Plants {
     public List<Integer> makeTillerPrices(List<Integer> normalPrice) {
         List<Integer> tillerPrice = new ArrayList<>();
         for (int price : normalPrice) {
-            if (!isFlower) {
-                tillerPrice.add((int) (price + (price * 0.1)));
-            }
+            tillerPrice.add((int) (price + (price * 0.1)));
         }
         return tillerPrice;
     }
 
     public List<Integer> makeKegPrices(List<Integer> normalPrice) {
         List<Integer> kegPrice = new ArrayList<>();
-        if (!isFlower) {
+        if (this.seedName.equals("Hops")) {
+            kegPrice.add(300);
+            kegPrice.add(375);
+            kegPrice.add(450);
+        } else if (!isFlower) {
             for (int price : normalPrice) {
                 if (isFruit) {
                     kegPrice.add(price * 3);
@@ -170,11 +172,6 @@ public class Plants {
                     kegPrice.add((int) (price * 2.25));
                 }
             }
-        }
-        if (this.seedName.equals("Hops")) {
-            kegPrice.add(300);
-            kegPrice.add(375);
-            kegPrice.add(450);
         }
         return kegPrice;
     }
