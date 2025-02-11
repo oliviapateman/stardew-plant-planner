@@ -32,6 +32,12 @@ public class CalculatorController {
     public String calcForm(CalculatorForm calculatorForm, Model model){
         calculatorService.calculateProfits(calculatorForm.getDataList());
         model.addAttribute("calc", calculatorService);
+        return "redirect:/results";
+    }
+
+    @GetMapping("/results")
+    public String showResults(Model model){
+        model.addAttribute("calc", calculatorService);
         return "calculatorResults";
     }
 
