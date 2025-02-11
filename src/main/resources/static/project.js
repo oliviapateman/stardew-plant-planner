@@ -1,23 +1,18 @@
-//Calculator page
-function selectAllTiller(source){
-    checkboxes = document.getElementsByClassName('selectTiller');
-    for(var i=0; i<checkboxes.length; i++){
-        checkboxes[i].checked = source.checked
-    }
-}
-
-function selectAllArtisan(source){
-    checkboxes = document.getElementsByClassName('selectArtisan');
-    for(var i=0; i<checkboxes.length; i++){
-        checkboxes[i].checked = source.checked
-    }
-}
-
-//Calendar page
 $(document).ready(function() {
+//Calendar Page
     $(function() {
         $( ".day" ).click(function(){
             $('#event-menu').slideToggle('slow');
        });
     });
+
+//Calculator Page
+    $('#selectAllTiller').click(function () {
+        $('.selectTiller').prop('checked', $(this).prop("checked"));
+    });
+
+    $('#selectAllArtisan').click(function () {
+        $('.selectArtisan').prop('checked', $(this).prop("checked"));
+    });
+
 })

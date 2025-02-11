@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Stardew Data</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script th:src="@{project.js}"></script>
 </head>
 
@@ -26,10 +27,10 @@
                 <tr>
                     <th>Seed Name</th>
                     <th>Quantity</th>
-                    <th>Tiller?<input type="checkbox" onclick="selectAllTiller(this)"></th>
+                    <th>Tiller?<input type="checkbox" id="selectAllTiller"></th>
                     <th>Kegs?</th>
                     <th>Jars?</th>
-                    <th>Artisan?<input type="checkbox" onclick="selectAllArtisan(this)"></th>
+                    <th>Artisan?<input type="checkbox" id="selectAllArtisan"></th>
                 </tr>
             </thead>
             <tbody>
