@@ -16,8 +16,8 @@ public class Plants {
     private boolean isFruit;
     private boolean isFlower;
     private int month;
+    private int growTime;
     // 1 - Spring, 2 - Summer, 3 - Fall, 4 - Winter
-
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Integer> normalPrice;
 
@@ -41,11 +41,12 @@ public class Plants {
     @CollectionTable(name = "jar_artisan", joinColumns = @JoinColumn(name = "plants_id"))
     private List<Integer> jarArtisanPrice;
 
-    public Plants(boolean isFruit, boolean isFlower, String seedName, int month, List<Integer> normalPrice) {
+    public Plants(boolean isFruit, boolean isFlower, String seedName, int month, int growTime, List<Integer> normalPrice) {
         this.isFruit = isFruit;
         this.isFlower = isFlower;
         this.seedName = seedName;
         this.month = month;
+        this.growTime = growTime;
         this.normalPrice = normalPrice;
         this.tillerPrice = makeTillerPrices(normalPrice);
         this.kegPrice = makeKegPrices(normalPrice);
@@ -108,6 +109,14 @@ public class Plants {
         this.tillerPrice = makeTillerPrices(normalPrice);
         this.kegPrice = makeKegPrices(normalPrice);
         this.jarPrice = makeJarPrices(normalPrice);
+    }
+
+    public int getGrowTime() {
+        return growTime;
+    }
+
+    public void setGrowTime(int growTime) {
+        this.growTime = growTime;
     }
 
     public int getMonth() {
