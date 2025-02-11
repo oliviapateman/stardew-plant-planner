@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Stardew Data</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script th:src="@{project.js}"></script>
 </head>
 
@@ -22,12 +22,14 @@
 </div>
 
 <div id="event-menu">
-    <h4>Choose seed to plant</h4>
-    <select id="event-dropdown">
-        <option th:each="plants : ${listPlants}" th:text="${plants.seedName}" value="${plants.id}"></option>
-    </select>
-    <button id="save">Add</button>
-    <br>
+    <form>
+        <h4>Choose seed to plant</h4>
+        <select id="event-dropdown">
+            <option id="event" th:each="plants : ${listPlants}" th:text="${plants.seedName}" value="${plants.id}"></option>
+        </select>
+        <button id="save">Add</button>
+        <br>
+    </form>
 </div>
 
 <div class="calendar">
@@ -44,42 +46,8 @@
         </tr>
         </thead>
         <tbody class="dates">
-            <tr>
-                <td data-date="1" class="day">1</td>
-                <td data-date="2" class="day">2</td>
-                <td data-date="3" class="day">3</td>
-                <td data-date="4" class="day">4</td>
-                <td data-date="5" class="day">5</td>
-                <td data-date="6" class="day">6</td>
-                <td data-date="7" class="day">7</td>
-            </tr>
-            <tr>
-                <td data-date="8" class="day">8</td>
-                <td data-date="9" class="day">9</td>
-                <td data-date="10" class="day">10</td>
-                <td data-date="11" class="day">11</td>
-                <td data-date="12" class="day">12</td>
-                <td data-date="13" class="day">13</td>
-                <td data-date="14" class="day">14</td>
-            </tr>
-            <tr>
-                <td data-date="15" class="day">15</td>
-                <td data-date="16" class="day">16</td>
-                <td data-date="17" class="day">17</td>
-                <td data-date="18" class="day">18</td>
-                <td data-date="19" class="day">19</td>
-                <td data-date="20" class="day">20</td>
-                <td data-date="21" class="day">21</td>
-            </tr>
-            <tr>
-                <td data-date="22" class="day">22</td>
-                <td data-date="23" class="day">23</td>
-                <td data-date="24" class="day">24</td>
-                <td data-date="25" class="day">25</td>
-                <td data-date="26" class="day">26</td>
-                <td data-date="27" class="day">27</td>
-                <td data-date="28" class="day">28</td>
-            </tr>
+            <tr th:each="week : ${weeks}">
+                <td th:each="day : ${week}" th:text="${day.dayOfMonth}" class="day"></td>
         </tbody>
     </table>
 </div>
