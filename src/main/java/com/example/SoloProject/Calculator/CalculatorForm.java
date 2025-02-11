@@ -1,4 +1,4 @@
-package com.example.SoloProject;
+package com.example.SoloProject.Calculator;
 
 import java.util.List;
 

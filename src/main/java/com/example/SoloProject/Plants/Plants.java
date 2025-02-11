@@ -1,4 +1,4 @@
-package com.example.SoloProject;
+package com.example.SoloProject.Plants;
 
 import jakarta.persistence.*;
 
@@ -54,7 +54,7 @@ public class Plants {
         this.jarArtisanPrice = makeJarArtisanPrices(this.jarPrice);
     }
 
-    protected Plants() {
+    public Plants() {
     }
 
     public List<Integer> getJarArtisanPrice() {

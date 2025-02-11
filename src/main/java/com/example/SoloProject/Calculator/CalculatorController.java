@@ -1,5 +1,7 @@
-package com.example.SoloProject;
+package com.example.SoloProject.Calculator;
 
+import com.example.SoloProject.Plants.Plants;
+import com.example.SoloProject.Plants.PlantsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,5 +1,7 @@
 package com.example.SoloProject;
 
+import com.example.SoloProject.Plants.Plants;
+import com.example.SoloProject.Plants.PlantsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
