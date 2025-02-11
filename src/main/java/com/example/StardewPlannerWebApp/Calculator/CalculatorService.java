@@ -1,7 +1,7 @@
-package com.example.SoloProject.Calculator;
+package com.example.StardewPlannerWebApp.Calculator;
 
-import com.example.SoloProject.Plants.Plants;
-import com.example.SoloProject.Plants.PlantsRepository;
+import com.example.StardewPlannerWebApp.Plants.Plants;
+import com.example.StardewPlannerWebApp.Plants.PlantsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

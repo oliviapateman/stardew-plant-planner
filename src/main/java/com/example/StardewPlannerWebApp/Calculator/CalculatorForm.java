@@ -1,4 +1,4 @@
-package com.example.SoloProject.Calculator;
+package com.example.StardewPlannerWebApp.Calculator;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.SoloProject.Plants;
+package com.example.StardewPlannerWebApp.Plants;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

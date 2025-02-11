@@ -1,7 +1,7 @@
-package com.example.SoloProject;
+package com.example.StardewPlannerWebApp;
 
-import com.example.SoloProject.Plants.Plants;
-import com.example.SoloProject.Plants.PlantsRepository;
+import com.example.StardewPlannerWebApp.Plants.Plants;
+import com.example.StardewPlannerWebApp.Plants.PlantsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

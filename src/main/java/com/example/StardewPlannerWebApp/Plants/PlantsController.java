@@ -1,4 +1,4 @@
-package com.example.SoloProject.Plants;
+package com.example.StardewPlannerWebApp.Plants;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
