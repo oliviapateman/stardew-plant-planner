@@ -74,7 +74,11 @@ tr {
     padding: 5px 5px;
 }
 
-tr:hover {
+.crop_table tr:hover {
+    background-color: #f5eea6;
+}
+
+.calc_table tr:hover {
     background-color: #f5eea6;
 }
 
@@ -88,4 +92,25 @@ td {
     margin: auto;
     display: block;
     padding: 8px 15px;
+}
+
+.calendar_table {
+     width: 950px;
+     height: 500px;
+     margin: auto;
+     background-color: #bad2f7;
+     text-align: center;
+     table-layout: fixed;
+}
+
+.calendar_table .day {
+    vertical-align: top;
+}
+
+#event-menu {
+    display: none;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+    width: 300px;
+    margin: auto;
 }
