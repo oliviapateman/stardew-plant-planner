@@ -28,14 +28,14 @@ public class PlantsRepositoryTests {
 
     @Test
     public void savePlantTest() {
-        Plants plant = new Plants(true, false, "Strawberry", 1, List.of(120, 150, 180));
+        Plants plant = new Plants(true, false, "Strawberry", 1, 8, List.of(120, 150, 180));
         plantsRepo.save(plant);
         assertTrue(plant.getId() > 0);
     }
 
     @Test
     public void fruitHasAllValues() {
-        Plants fruit = new Plants(true, false, "Strawberry", 1, List.of(120, 150, 180));
+        Plants fruit = new Plants(true, false, "Strawberry", 1, 8, List.of(120, 150, 180));
         plantsRepo.save(fruit);
         assertNotNull(fruit.getJarPrice());
         assertNotNull(fruit.getKegPrice());
@@ -46,7 +46,7 @@ public class PlantsRepositoryTests {
 
     @Test
     public void vegHasAllValues() {
-        Plants veg = new Plants(false, false, "Broccoli", 3, List.of(70, 7, 105));
+        Plants veg = new Plants(false, false, "Broccoli", 3, 8, List.of(70, 7, 105));
         plantsRepo.save(veg);
         assertNotNull(veg.getJarPrice());
         assertNotNull(veg.getKegPrice());
@@ -57,7 +57,7 @@ public class PlantsRepositoryTests {
 
     @Test
     public void flowerHasOnlyTillerAddedValues() {
-        Plants flower = new Plants(false, true, "Fairy Rose", 3, List.of(290, 362, 435));
+        Plants flower = new Plants(false, true, "Fairy Rose", 3, 12, List.of(290, 362, 435));
         plantsRepo.save(flower);
         assertEquals(3, flower.getTillerPrice().size());
         assertEquals(0, flower.getJarPrice().size());
@@ -68,10 +68,10 @@ public class PlantsRepositoryTests {
 
     @Test
     public void getPlantsByMonth() {
-        plantsRepo.save(new Plants(false, false, "Tomato", 2, List.of(60, 75, 90)));
-        plantsRepo.save(new Plants(false, false, "Wheat", 2, List.of(25, 31, 37)));
-        plantsRepo.save(new Plants(false, false, "Corn", 3, List.of(50, 62, 75)));
-        plantsRepo.save(new Plants(false, true, "Sunflower", 3, List.of(80, 100, 120)));
+        plantsRepo.save(new Plants(false, false, "Tomato", 2, 11, List.of(60, 75, 90)));
+        plantsRepo.save(new Plants(false, false, "Wheat", 2, 4, List.of(25, 31, 37)));
+        plantsRepo.save(new Plants(false, false, "Corn", 3, 14, List.of(50, 62, 75)));
+        plantsRepo.save(new Plants(false, true, "Sunflower", 3, 8, List.of(80, 100, 120)));
 
         log.info(plantsRepo.findByMonth(2).toString());
 
@@ -80,10 +80,10 @@ public class PlantsRepositoryTests {
 
     @Test
     public void getAllPlants() {
-        plantsRepo.save(new Plants(false, false, "Tomato", 2, List.of(60, 75, 90)));
-        plantsRepo.save(new Plants(false, false, "Wheat", 2, List.of(25, 31, 37)));
-        plantsRepo.save(new Plants(false, false, "Corn", 3, List.of(50, 62, 75)));
-        plantsRepo.save(new Plants(false, true, "Sunflower", 3, List.of(80, 100, 120)));
+        plantsRepo.save(new Plants(false, false, "Tomato", 2, 11, List.of(60, 75, 90)));
+        plantsRepo.save(new Plants(false, false, "Wheat", 2, 4, List.of(25, 31, 37)));
+        plantsRepo.save(new Plants(false, false, "Corn", 3, 14, List.of(50, 62, 75)));
+        plantsRepo.save(new Plants(false, true, "Sunflower", 3, 8, List.of(80, 100, 120)));
 
         List<Plants> plantsList = (List<Plants>) plantsRepo.findAll();
 
