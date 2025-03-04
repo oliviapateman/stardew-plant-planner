@@ -1,11 +1,10 @@
-package com.example.StardewPlannerWebApp;
+package com.example.tests;
 
 import com.example.StardewPlannerWebApp.Calculator.CalculatorController;
 import com.example.StardewPlannerWebApp.Plants.Plants;
 import com.example.StardewPlannerWebApp.Plants.PlantsRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;

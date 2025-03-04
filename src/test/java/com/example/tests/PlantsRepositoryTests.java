@@ -1,4 +1,4 @@
-package com.example.StardewPlannerWebApp;
+package com.example.tests;
 
 import com.example.StardewPlannerWebApp.Plants.Plants;
 import com.example.StardewPlannerWebApp.Plants.PlantsRepository;
