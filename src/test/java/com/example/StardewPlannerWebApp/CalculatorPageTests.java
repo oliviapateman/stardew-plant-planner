@@ -1,4 +1,4 @@
-package com.example.tests;
+package com.example.StardewPlannerWebApp;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

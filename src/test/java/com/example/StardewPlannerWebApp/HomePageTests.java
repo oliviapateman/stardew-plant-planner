@@ -1,4 +1,4 @@
-package com.example.tests;
+package com.example.StardewPlannerWebApp;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
