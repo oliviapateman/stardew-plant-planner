@@ -31,3 +31,4 @@ OR
 - H2Database
 - Spring Data JPA
 - JUnit
+- Selenium
