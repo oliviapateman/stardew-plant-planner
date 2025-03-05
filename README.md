@@ -24,7 +24,7 @@ OR
 - Open web URLs: http://localhost:8080/, http://localhost:8080/crops, http://localhost:8080/calculator and http://localhost:8080/calendar.
 - Navigate webpages and fill out calculator form.
 
-### Dependencies
+### Dependencies:
 - ThymeLeaf
 - Spring Web
 - Spring DevTools
