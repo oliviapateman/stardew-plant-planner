@@ -39,7 +39,6 @@ public class PricesPageTests {
 
     @Test
     public void pricesNavBtnShouldOpenPricesPage(){
-        pricesPage.getPage();
         pricesPage.clickPricesNavBtn();
         assertEquals("Crop Selling Prices", pricesPage.getPageHeading());
     }
